@@ -8,13 +8,15 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
+    ports:
+      - 3001:3001
 
-  client:
-    stdin_open: true
-    build:
-      dockerfile: Dockerfile
-      context: ./client
-    volumes:
-      - /app/node_modules
-      - ./client:/app
+  # client:
+  #   stdin_open: true
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./client
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./client:/app
 
