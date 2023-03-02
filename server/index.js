@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require("express");
 const path = require("path");
 
@@ -5,6 +6,10 @@ const PORT = 3001;
 const HOST = '0.0.0.0';
 
 const app = express();
+
+app.use(cors());
+
+app.options('*', cors());
 
 app.use(express.static(path.resolve(__dirname, '../client/public')));
 
