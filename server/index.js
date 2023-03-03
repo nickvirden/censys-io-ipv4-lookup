@@ -13,12 +13,11 @@ app.options('*', cors());
 
 const client = new WebServiceClient('831191', 'DCuaaUACH19M2Wds', { host: 'geolite.info' });
 
-app.get('/api', (req, res) => {
-  client.country('142.1.1.1').then(response => {
-    console.log(response);
-  });
+app.get('/api', async (req, res) => {
+  const response = await client.city('142.1.1.1');
+  const { longitude, latitude } = response.location;
 
-  res.json({ message: 'Hello from server!' });
+  res.json({ longitude, latitude });
 });
 
 app.listen(PORT, HOST, () => {
