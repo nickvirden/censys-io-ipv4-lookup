@@ -104,13 +104,31 @@ There are so many other things that could be improved, but if you wanted to take
 
 While this application doesn't showcase a bunch of TypeScript, I made my best effort to incorporate an interface. Ideally, as the app grows, there would be more models (interfaces, types) that would help guide a sustainable growth path of the application.
 
-### 2) Componentization
+### 2) Validation
+
+There could have been some client-side validation as well to validate the text in the input box as a legitimate IPv4 address, as well as feedback for the user when an address they put in is invalid.
+### 3) Componentization
 
 Ideally, I could have broken the app out into two more sub-components - the Form and Lat-Long display. It's mostly a style nitpick, but in the long term, componentization makes the app easier to read by humans, and that saves dev time in the long run.
 
-### 2) More Component / E2E Testing
+### 4) More Component / E2E Testing
 
 The frontend as well as the backend are missing more robust testing, but that's nothing a little bit of Jest & React Testing Library couldn't fix.
+
+## Testing Steps
+
+### Frontend
+
+Simply run `npm test` from the `client` directory to see a few tests run.
+
+Some more manual testing can be conducted, as well:
+
+1) Pass a valid IPv4 address into the text input box. Longitude and Latitude should appear below the form box.
+2) Pass an invalid IPv4 address into the input box. There will be a gracefully handled, yet feedback-lacking error.
+
+### Backend
+
+While the server is running, a tool like Postman, you could pass a JSON object with a structure `{ ipAddress: 'some-ip-address-here' }` and a JSON `Content-Type`. It will return longitude and latitude data.
 
 # Closing
 
